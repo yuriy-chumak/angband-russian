@@ -259,71 +259,71 @@ void core(cptr str)
 /* Replaces for buggy WinBlows! */
 int a_toupper(int c)
 {
-#ifdef WINDOWS
-	if (c >= 'Á' && c <= 'Ñ')
-		return c - 32;
+//#ifdef WINDOWS
+	if (c >= 'À' && c <= 'ß')
+		return c + ('à'-'À');
 	else if ((unsigned char)c >= 128)
 		return c;
 	else
-#endif
+//#endif
 		return toupper(c);
 }
 
 int a_tolower(int c)
 {
-#ifdef WINDOWS
-	if (c >= 'á' && c <= 'ñ')
-		return c + 32;
+//#ifdef WINDOWS
+	if (c >= 'à' && c <= 'ÿ')
+		return c - ('à'-'À');
 	else if ((unsigned char)c >= 128)
 		return c;
 	else
-#endif
+//#endif
 		return tolower(c);
 }
 
 int a_isupper(int c)
 {
-#ifdef WINDOWS
-	if (c >= 'á' && c <= 'ñ')
+//#ifdef WINDOWS
+	if (c >= 'à' && c <= 'ÿ')
 		return TRUE;
 	else if ((unsigned char)c >= 128)
 		return FALSE;
 	else
-#endif
+//#endif
 		return isupper(c);
 }
 
 int a_islower(int c)
 {
-#ifdef WINDOWS
-	if (c >= 'Á' && c <= 'Ñ')
+//#ifdef WINDOWS
+	if (c >= 'À' && c <= 'ß')
 		return TRUE;
 	else if ((unsigned char)c >= 128)
 		return FALSE;
 	else
-#endif
+//#endif
 		return islower(c);
 }
 
 int a_isalpha(int c)
 {
-#ifdef WINDOWS
-	if ((c >= 'á' && c <= 'ñ') || (c >= 'Á' && c <= 'Ñ'))
+//#ifdef WINDOWS
+	if ((c >= 'À' && c <= 'ß') || (c >= 'à' && c <= 'ÿ'))
 		return TRUE;
 	else if ((unsigned char)c >= 128)
 		return FALSE;
 	else
-#endif
-		return isalpha(c);
+//#endif
+	return isalpha(c);
 }
 	
 int a_isprint(int c)
 {
-#ifdef WINDOWS
+//#ifdef WINDOWS
 	if ((unsigned char)c >= 128 && (unsigned char)c <= 255)
 		return TRUE;
 	else
-#endif
-		return isprint(c);
+//#endif
+	return isprint(c);
 }
 

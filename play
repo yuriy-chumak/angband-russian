@@ -1,0 +1,3 @@
+#!/bin/sh
+
+LC_CTYPE=ru_RU.KOI8-R LANG=ru_RU.KOI8-R ANGBAND_X11_FONT=-misc-fixed-medium-r-semicondensed--13-120-75-75-c-60-koi8-r src/angband
